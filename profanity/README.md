@@ -1,6 +1,6 @@
 # profanity - XMPP client
 
-Runs profanity within a tmux session over ssh.
+Runs [profanity](http://www.profanity.im/) within a tmux session over ssh.
 
 ## Installation
 
