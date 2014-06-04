@@ -2,15 +2,19 @@ FROM zefhemel/sshd
 
 MAINTAINER André König <andre.koenig@posteo.de>
 
-RUN apt-get update && apt-get install -y git build-essential wget automake autoconf
+RUN apt-get update && apt-get install -y tmux git build-essential automake autoconf libssl-dev libexpat1-dev libncursesw5-dev libglib2.0-dev libnotify-dev libcurl4-openssl-dev libxss-dev
 
 RUN git clone https://github.com/strophe/libstrophe
 
-WORKDIR libstrophe
+WORKDIR /libstrophe
+RUN sh ./bootstrap.sh && ./configure && make && make install
+
+WORKDIR /
+RUN git clone https://github.com/boothj5/profanity
+
+WORKDIR /profanity
+RUN git checkout 0.4.2
+
 RUN ./bootstrap.sh && ./configure && make && make install
 
-RUN wget https://github.com/boothj5/profanity/archive/0.4.2.tar.gz && tar xvfz 0.4.2.tar.gz
-
-WORKDIR /profanity-0.4.2
-
-RUN ./configure && make && make install
+ADD bashrc /root/.bashrc

@@ -1,6 +1,6 @@
 # dockerfiles
 
-* profanity
+* profanity - XMPP client within a tmux session over ssh
 
 ## Author
 
