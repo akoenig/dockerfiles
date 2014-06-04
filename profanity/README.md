@@ -14,6 +14,8 @@ Runs [profanity](http://www.profanity.im/) within a tmux session over ssh.
 
     ssh root@localhost -p 8023
 
+Password is `root`
+
 ## Author
 
 Copyright 2014, [André König](http://andrekoenig.info) (andre.koenig@posteo.de)
